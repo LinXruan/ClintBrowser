@@ -661,24 +661,24 @@
     <string name="camera_permission_title">Camera access</string>
     <string name="camera_permission_message">Camera access is needed so you can take photos or record videos to upload directly from this page.</string>
     <string name="camera_web_request_title">Camera access requested</string>
-    <string name="camera_web_request_message">%s wants to use your camera.</string>
+    <string name="camera_web_request_message">%1$s wants to use your camera.</string>
     <string name="camera_web_request_remember">Don\'t ask me again</string>
     <string name="mic_web_request_title">Microphone access requested</string>
-    <string name="mic_web_request_message">%s wants to use your microphone.</string>
+    <string name="mic_web_request_message">%1$s wants to use your microphone.</string>
     <string name="mic_web_request_origin_unknown">This website</string>
     <string name="location_web_request_title">Location access requested</string>
-    <string name="location_web_request_message">%s wants to access your location.</string>
+    <string name="location_web_request_message">%1$s wants to access your location.</string>
     <string name="location_web_request_origin_unknown">This website</string>
     <string name="location_permission_title">Location access</string>
     <string name="location_permission_message">Location access is needed so this website can access your location.</string>
     <string name="camera_web_request_origin_unknown">This website</string>
     <string name="notification_web_request_title">Notification access requested</string>
-    <string name="notification_web_request_message">%s wants to send you notifications.</string>
+    <string name="notification_web_request_message">%1$s wants to send you notifications.</string>
     <string name="notification_web_request_origin_unknown">This website</string>
     <string name="notification_permission_title">Notification access</string>
     <string name="notification_permission_message">Notification access is needed so this website can send you notifications.</string>
     <string name="clipboard_web_request_title">Clipboard access requested</string>
-    <string name="clipboard_web_request_message">%s wants to see text on your clipboard.</string>
+    <string name="clipboard_web_request_message">%1$s wants to see text on your clipboard.</string>
     <string name="clipboard_web_request_origin_unknown">This website</string>
     <string name="web_notification_channel_name">Website notifications</string>
     <string name="web_notification_channel_desc">Notifications sent by websites</string>
@@ -988,11 +988,11 @@
     <string name="bookmarks_empty">No bookmarks yet</string>
     <string name="bookmarks_search">Search</string>
     <string name="bookmarks_search_hint">Search bookmarks…</string>
-    <string name="bookmarks_selected_count">%d selected</string>
+    <string name="bookmarks_selected_count">%1$d selected</string>
     <string name="bookmarks_delete_selected">Delete</string>
     <string name="bookmarks_delete_selected_desc">Delete selected bookmarks</string>
     <string name="bookmarks_delete_confirm_title">Delete bookmarks</string>
-    <string name="bookmarks_delete_confirm_message">Delete %d bookmark(s)?</string>
+    <string name="bookmarks_delete_confirm_message">Delete %1$d bookmark(s)?</string>
     <string name="bookmarks_items_deleted">Bookmarks deleted</string>
     <string name="bookmarks_sort_by_date_added">Date Added</string>
     <string name="bookmarks_new_folder_desc">New folder</string>
@@ -1003,9 +1003,9 @@
     <string name="bookmarks_move_to">Move to…</string>
     <string name="bookmarks_move_to_title">Move to</string>
     <string name="bookmarks_save_to_title">Save to</string>
-    <string name="bookmarks_delete_confirm_message_folders">Delete %d item(s)? Bookmarks and folders inside selected folders will also be deleted.</string>
+    <string name="bookmarks_delete_confirm_message_folders">Delete %1$d item(s)? Bookmarks and folders inside selected folders will also be deleted.</string>
     <string name="bookmarks_folder_empty">This folder is empty</string>
-    <string name="bookmarks_folder_item_count">%d items</string>
+    <string name="bookmarks_folder_item_count">%1$d items</string>
     <string name="bookmarks_add_fab_desc">Add bookmark or folder</string>
     <string name="bookmarks_fab_add_folder">Add Folder</string>
     <string name="bookmarks_fab_add_bookmark">Add Bookmark</string>
@@ -1020,7 +1020,7 @@
     <string name="bookmarks_format_html_desc">Compatible with Chrome, Firefox, Safari, and Edge</string>
     <string name="bookmarks_format_sqlite">SQLite Database</string>
     <string name="bookmarks_format_sqlite_desc">Full backup with folders and dates preserved</string>
-    <string name="bookmarks_import_success">Imported %d bookmarks</string>
+    <string name="bookmarks_import_success">Imported %1$d bookmarks</string>
     <string name="bookmarks_import_error">Failed to import bookmarks</string>
     <string name="bookmarks_export_success">Bookmarks exported</string>
     <string name="bookmarks_export_error">Failed to export bookmarks</string>
@@ -1129,10 +1129,10 @@
     <string name="downloads_sort_by_date">Date</string>
     <string name="downloads_sort_by_size">Size</string>
     <string name="downloads_sort_by_status">Status</string>
-    <string name="downloads_selected_count">%d selected</string>
+    <string name="downloads_selected_count">%1$d selected</string>
     <string name="downloads_delete_selected_desc">Remove selected downloads</string>
     <string name="downloads_delete_confirm_title">Remove downloads</string>
-    <string name="downloads_delete_confirm_message">Remove %d download(s)?</string>
+    <string name="downloads_delete_confirm_message">Remove %1$d download(s)?</string>
     <string name="downloads_delete_also_from_storage">Delete file from storage as well</string>
     <string name="downloads_deleting_title">Deleting…</string>
     <string name="downloads_deleting_progress">%1$d of %2$d</string>
@@ -1279,7 +1279,7 @@
         <item quantity="other">%1$d sites</item>
     </plurals>
     <string name="history_clear_all">Clear all</string>
-    <string name="history_selected_count">%d selected</string>
+    <string name="history_selected_count">%1$d selected</string>
     <string name="history_select_all">Select All</string>
     <string name="history_invert_selection">Invert</string>
     <string name="history_deselect_all">Deselect All</string>
@@ -1295,7 +1295,7 @@
     <string name="history_search_hint">Search history…</string>
     <string name="history_cancel_selection_desc">Cancel selection</string>
     <string name="history_delete_confirm_title">Delete items</string>
-    <string name="history_delete_confirm_message">Remove %d item(s) from history?</string>
+    <string name="history_delete_confirm_message">Remove %1$d item(s) from history?</string>
     <string name="history_items_deleted">Removed from history</string>
     <string name="history_actions_desc">History actions</string>
     <string name="history_clear_all_confirm_message">Clear all browsing and search history? This can\'t be undone.</string>
@@ -1316,7 +1316,7 @@
     <string name="desktop_mode_saved_sites">Saved sites</string>
     <string name="desktop_mode_no_saved_sites">No sites saved</string>
     <string name="desktop_mode_delete_confirm_title">Remove saved sites</string>
-    <string name="desktop_mode_delete_confirm_message">Remove %d saved site(s)?</string>
+    <string name="desktop_mode_delete_confirm_message">Remove %1$d saved site(s)?</string>
     <string name="desktop_mode_items_deleted">Saved sites removed</string>
     <string name="desktop_mode_add_site">Add site</string>
     <string name="desktop_mode_search_hint">Search saved sites…</string>
@@ -1329,7 +1329,7 @@
     <string name="quiver_guard_exception_add_site">Add site</string>
     <string name="quiver_guard_exception_state_label">Quiver Guard Disabled</string>
     <string name="quiver_guard_exception_delete_title">Remove saved sites</string>
-    <string name="quiver_guard_exception_delete_message">Remove %d saved site(s)?</string>
+    <string name="quiver_guard_exception_delete_message">Remove %1$d saved site(s)?</string>
     <string name="quiver_guard_exception_items_deleted">Saved sites removed</string>
     <string name="menu_disable_quiver_guard_for_site">Disable Quiver Guard for this site</string>
 
@@ -1350,7 +1350,7 @@
     <string name="site_permission_always_allow_desc">Grant all site requests without prompting</string>
     <string name="site_permission_search_hint">Search exceptions…</string>
     <string name="site_permission_delete_confirm_title">Delete exceptions</string>
-    <string name="site_permission_delete_confirm_message">Remove %d exception(s)?</string>
+    <string name="site_permission_delete_confirm_message">Remove %1$d exception(s)?</string>
     <string name="site_permission_items_deleted">Exceptions removed</string>
     <string name="site_info_title">Site information</string>
     <string name="site_info_connection_secure">Connection is secure</string>
@@ -1543,7 +1543,7 @@
     <string name="filter_list_item_local_no_update">Local filter lists don\'t have updates to check</string>
     <string name="filter_list_search_hint">Search filter lists…</string>
     <string name="filter_list_delete_confirm_title">Delete filter lists</string>
-    <string name="filter_list_delete_confirm_message">Remove %d filter list(s)?</string>
+    <string name="filter_list_delete_confirm_message">Remove %1$d filter list(s)?</string>
     <string name="filter_list_update_check_title">Check for Updates</string>
     <string name="filter_list_update_check_message">Check %1$d downloaded filter list(s) for available updates?</string>
     <string name="filter_list_update_no_lists_message">No downloaded filter lists to update. Download a filter list first.</string>
@@ -1792,11 +1792,11 @@
     <string name="website_blocker_title">Website Blocker</string>
     <string name="website_blocker_settings_summary">Block pornography, gambling, and other websites.</string>
     <string name="website_blocker_status_working">Working…</string>
-    <string name="website_blocker_status_active">Protecting you from %d known domains</string>
+    <string name="website_blocker_status_active">Protecting you from %1$d known domains</string>
     <string name="website_blocker_fab_save_desc">Save and apply changes</string>
     <string name="website_blocker_compile_failed">Failed to update the blocklist. Please try again.</string>
     <string name="website_blocker_delete_confirm_title">Reset category?</string>
-    <string name="website_blocker_delete_confirm_message">This removes the downloaded data for %d selected categories. You can download it again anytime.</string>
+    <string name="website_blocker_delete_confirm_message">This removes the downloaded data for %1$d selected categories. You can download it again anytime.</string>
 
     <string name="website_blocker_category_abuse">Abuse</string>
     <string name="website_blocker_category_abuse_desc">Blocks deceptive and abusive sites</string>
@@ -1862,7 +1862,7 @@
     <string name="additional_websites_title">Additional Websites</string>
     <string name="additional_websites_master_switch_title">Enable Additional Websites</string>
     <string name="additional_websites_master_switch_summary">Block the websites you\'ve added below</string>
-    <string name="additional_websites_summary">Websites added: %d</string>
+    <string name="additional_websites_summary">Websites added: %1$d</string>
     <string name="additional_websites_search_hint">Search additional websites</string>
     <string name="additional_websites_empty">No additional websites added yet</string>
     <string name="additional_websites_add_fab_desc">Add a website</string>
@@ -1872,7 +1872,7 @@
     <string name="additional_websites_add_action">Add</string>
     <string name="additional_websites_invalid_host">Enter a valid domain, such as example.com</string>
     <string name="additional_websites_delete_confirm_title">Delete website?</string>
-    <string name="additional_websites_delete_confirm_message">This will delete %d selected websites from Additional Websites.</string>
+    <string name="additional_websites_delete_confirm_message">This will delete %1$d selected websites from Additional Websites.</string>
     <string name="select_picker_default_title">Select an option</string>
 
     <string name="user_scripts_title">User Scripts</string>
@@ -1890,16 +1890,16 @@
     <string name="user_scripts_add_link_detected">Detected: %1$s</string>
     <string name="user_scripts_add_error_invalid_format">This doesn\'t look like a valid script</string>
     <string name="user_scripts_runs_all_sites">Runs on all sites</string>
-    <string name="user_scripts_runs_on_patterns">Runs on %d URL patterns</string>
+    <string name="user_scripts_runs_on_patterns">Runs on %1$d URL patterns</string>
     <string name="user_scripts_delete_confirm_title">Delete script?</string>
-    <string name="user_scripts_delete_confirm_message">This will delete %d selected scripts.</string>
+    <string name="user_scripts_delete_confirm_message">This will delete %1$d selected scripts.</string>
     <string name="user_scripts_delete_one_confirm_message">This script will be deleted.</string>
     <string name="user_scripts_editor_new_title">New Script</string>
     <string name="user_scripts_editor_edit_title">Edit Script</string>
     <string name="user_scripts_save_desc">Save script</string>
-    <string name="user_scripts_metadata_version">Version %s</string>
-    <string name="user_scripts_metadata_author">by %s</string>
-    <string name="user_scripts_metadata_requires">Requires %d external scripts</string>
+    <string name="user_scripts_metadata_version">Version %1$s</string>
+    <string name="user_scripts_metadata_author">by %1$s</string>
+    <string name="user_scripts_metadata_requires">Requires %1$d external scripts</string>
     <string name="user_scripts_run_at_start">Runs at page start</string>
     <string name="user_scripts_run_at_end">Runs at page end</string>
     <string name="user_scripts_run_at_idle">Runs when page is idle</string>
@@ -2075,7 +2075,7 @@
     <string name="data_saver_exception_add_site">Add site</string>
     <string name="data_saver_exception_state_label">Data Saver Disabled</string>
     <string name="data_saver_exception_delete_title">Remove saved sites</string>
-    <string name="data_saver_exception_delete_message">Remove %d saved site(s)?</string>
+    <string name="data_saver_exception_delete_message">Remove %1$d saved site(s)?</string>
     <string name="data_saver_exception_items_deleted">Saved sites removed</string>
     <string name="menu_disable_data_saver_for_site">Disable Data Saver for this site</string>
     <string name="settings_search">Search settings</string>
@@ -2339,8 +2339,8 @@
     <string name="translation_language_never_desc">Don\'t offer to translate pages in this language</string>
     <string name="translation_downloading">Downloading language…</string>
     <plurals name="translation_never_sites_count">
-        <item quantity="one">%d site</item>
-        <item quantity="other">%d sites</item>
+        <item quantity="one">%1$d site</item>
+        <item quantity="other">%1$d sites</item>
     </plurals>
     <string name="download_detect_mega_title">Detect MEGA links</string>
     <string name="download_detect_mega_summary">Offer to download files when you open a MEGA file or folder link</string>
@@ -2363,19 +2363,19 @@
     <string name="mega_error_invalid_key">The decryption key in this link is wrong or incomplete</string>
     <string name="mega_error_unsupported">Clint can\'t download this MEGA file yet</string>
     <string name="mega_error_busy">MEGA is busy right now. Try again in a moment.</string>
-    <string name="mega_error_generic">MEGA couldn\'t open this link (error %d)</string>
+    <string name="mega_error_generic">MEGA couldn\'t open this link (error %1$d)</string>
     <string name="mega_error_network">Couldn\'t reach MEGA. Check your connection and try again.</string>
     <plurals name="mega_folder_file_count">
         <item quantity="one">%1$d file · %2$s</item>
         <item quantity="other">%1$d files · %2$s</item>
     </plurals>
     <plurals name="mega_folder_started">
-        <item quantity="one">Downloading %d file</item>
-        <item quantity="other">Downloading %d files</item>
+        <item quantity="one">Downloading %1$d file</item>
+        <item quantity="other">Downloading %1$d files</item>
     </plurals>
     <plurals name="mega_folder_added_paused">
-        <item quantity="one">Added %d file to Downloads, paused</item>
-        <item quantity="other">Added %d files to Downloads, paused</item>
+        <item quantity="one">Added %1$d file to Downloads, paused</item>
+        <item quantity="other">Added %1$d files to Downloads, paused</item>
     </plurals>
     <string name="address_bar_copy_link">Copy page link</string>
     <string name="address_bar_link_copied">Page link copied</string>
