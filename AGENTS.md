@@ -7,7 +7,7 @@
 - 改代码前先读相关文件，不要凭印象改。
 - 遇到阻塞（构建失败、环境缺失、需求歧义）**立即停下汇报**，不要猜着改。
 - 装真机、抓 UI、看日志前先读 [DEBUG.md](DEBUG.md)。
-- 不擅自 push、开 PR、卸载应用或清除用户数据。
+- 不擅自 commit、push、开 PR、卸载应用或清除用户数据；提交要等用户发话。
 - 改完按 §5.6 跑验证，验证没过不要说「完成」。
 
 ## 1. 项目概况
@@ -108,12 +108,11 @@ tools/                 辅助脚本（非主流程）
 
 ### 5.7 提交
 
-| 前缀 | 用途 |
-|---|---|
-| `feat(<模块>): ...` | 新功能 |
-| `fix(<模块>): ...` | 缺陷修复 |
-| `refactor(<模块>): ...` | 重构 |
-| `chore(build): ...` `docs: ...` | 构建、文档 |
+格式：`<版本号>_pl<PLAN 号>：<一句话说明>`，例：`47_pl10：新增动态刷新率`。
+
+- 版本号取 `app/build.gradle.kts` 的 `versionCode`，PLAN 号对应 `PLAN/PLAN_N.md`。
+- 一个 PLAN 只提交一次，代码、文案、CHANGELOG、PLAN 文档一起进。
+- Agent 不自行 commit / push。
 
 不提交：`build/`、`.gradle/`、`.kotlin/`、`local.properties`、`__pycache__/`、APK、keystore。
 

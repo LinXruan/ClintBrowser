@@ -4,6 +4,20 @@ All notable changes to Clint Browser are documented here.
 
 ---
 
+# v1.2.7
+
+## What's New
+
+### Smooth refresh rate
+
+Clint now asks for the highest refresh rate your screen supports, so scrolling, tab switching and animations run at 120 Hz on 120 Hz displays instead of sitting at 60 Hz.
+
+- Applies to the whole app, not just the browser view.
+- Your system settings still win: battery saver and the display's refresh rate cap are respected, so 60 Hz stays 60 Hz if that is what you picked.
+- No effect on 60 Hz devices.
+
+---
+
 # v1.2.6
 
 ## What's New

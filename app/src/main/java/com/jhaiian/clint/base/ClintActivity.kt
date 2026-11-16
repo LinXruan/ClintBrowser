@@ -26,6 +26,7 @@ import com.jhaiian.clint.ui.theme.ThemeMode
 import com.jhaiian.clint.customtheme.CUSTOM_THEME_REVISION_PREF
 import com.jhaiian.clint.customtheme.resolveThemeChrome
 import com.jhaiian.clint.util.LocaleHelper
+import com.jhaiian.clint.util.RefreshRateSync
 import kotlin.math.hypot
 import kotlin.math.max
 
@@ -66,6 +67,7 @@ abstract class ClintActivity : AppCompatActivity() {
         appliedSystemDark = ThemeMode.isSystemDark()
         applyWindowChrome()
         super.onCreate(savedInstanceState)
+        RefreshRateSync.bind(this)
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -85,6 +87,11 @@ abstract class ClintActivity : AppCompatActivity() {
 
     protected open fun onSystemThemeChanged() {}
 
+    override fun onDestroy() {
+        RefreshRateSync.unbind(this)
+        super.onDestroy()
+    }
+
     override fun onResume() {
         super.onResume()
         openDialogCount = 0
@@ -102,6 +109,7 @@ abstract class ClintActivity : AppCompatActivity() {
         syncSystemTheme()
         applyStatusBarVisibility()
         applyWindowChrome()
+        RefreshRateSync.apply(this)
         window.decorView.post {
             applyStatusBarVisibility()
             startRevealIfNeeded()
