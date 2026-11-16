@@ -96,6 +96,15 @@ def main():
             print(k)
         return 0 if not unassigned else 1
 
+    if args.batch and args.stat and not args.all:
+        b = args.batch.upper()
+        if b not in groups:
+            ap.error(f"未知批次 {b}，可选 {', '.join(BATCHES)}")
+        hit = sum(1 for k in groups[b] if k in done)
+        more = f"  + {plurals[b]} 组复数" if plurals[b] else ""
+        print(f"{b} {hit}/{len(groups[b])} {hit * 100 // max(len(groups[b]), 1)}%{more}")
+        return 0 if hit == len(groups[b]) else 1
+
     if args.all or args.stat:
         total = 0
         for b in BATCHES:
