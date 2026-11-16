@@ -1,139 +1,137 @@
-# AGENTS.md
+# 项目开发守则（Clint Browser / Kotlin + Compose Android）
 
-给在本仓库工作的 AI 代理看的说明。**开工前先读完本文件，再读 `PLAN/PLAN_1.md`。**
+> 给 AI Agent 的项目提示词。开工前通读；调试相关一律看 [DEBUG.md](DEBUG.md)。
 
----
+## 0. 守则
 
-## 1. 这是什么项目
+- 改代码前先读相关文件，不要凭印象改。
+- 遇到阻塞（构建失败、环境缺失、需求歧义）**立即停下汇报**，不要猜着改。
+- 装真机、抓 UI、看日志前先读 [DEBUG.md](DEBUG.md)。
+- 不擅自 push、开 PR、卸载应用或清除用户数据。
+- 改完按 §5.6 跑验证，验证没过不要说「完成」。
 
-Android 浏览器 **Clint Browser**（Kotlin + Jetpack Compose，GPLv3），上游仓库 `jhaiian/ClintBrowser`。
-本 fork 的唯一目的：**做简体中文汉化**，把界面从英文翻译成简体中文，不改变上游功能行为。
+## 1. 项目概况
 
-- 语言：Kotlin、少量 JS（注入脚本）、Rust/C++（屏蔽引擎，见 `native/`）
-- 构建：Gradle wrapper 9.8.1，`compileSdk/targetSdk = 37`，`minSdk = 26`，JDK 17+（本机 21）
-- 当前基线：`7ed7b75`（上游 v1.2.6 + 恢复 .gitignore 的本地提交）
-
----
-
-## 2. 目录速查
-
-```
-app/src/main/
-  java/com/jhaiian/clint/     Kotlin 源码（界面全部 Compose）
-    util/LocaleHelper.kt      ★ 语言开关的核心：常量 + 白名单 + Context 包装
-    settings/lookandfeel/     ★ 语言选择 UI（LanguageUtils / LookAndFeelDialogs）
-    settings/search/          设置搜索（基于 getString，中文自动生效）
-    translation/              Bergamot 网页翻译功能（勿与界面语言混淆）
-    downloads/ browser/ settings/ mediacapture/ blocker/ ...
-  res/
-    values/strings.xml        ★ 英文源文件，2184 条，唯一真源
-    values-es|fil|hi|in|pt-rBR|ru/   现有 6 个语种（各约 2178 条）
-    values-zh/                ← 目标目录，尚未创建
-  assets/JavaScript/          注入脚本，无用户可见英文，不要动
-  assets/translations/        Mozilla 离线翻译模型，勿动
-PLAN/PLAN_1..9.md             ★ 汉化计划，唯一契约（见第 4 节）
-tools/                        ← 计划中要建的校验脚本（尚未创建）
-native/                       Rust/C++ 屏蔽引擎
-fastlane/metadata/android/    商店文案（en-US/es/fil/ru，无 zh）
-```
-
----
-
-## 3. 翻译工作的技术事实（已核实，不要推翻重查）
-
-| 事实 | 数值 / 位置 |
+| 项 | 值 |
 |---|---|
-| 需翻译字符串 | **2178** 条（2184 减去 6 条 `translatable="false"`） |
-| 复数 | 25 组 / 50 个 item |
-| 现有语种 | `values-es` `values-fil` `values-hi` `values-in` `values-pt-rBR` `values-ru`，**无中文** |
-| 位置占位符 | 188 条含 `%1$s` / `%1$d` |
-| 非位置占位符 | 29 条 + 3 组复数仍用 `%s`/`%d`，计划在 PLAN_2 重构为位置参数 |
-| 语言白名单 | `LocaleHelper.kt:21-28`，不在名单内的 tag 一律回退英文 |
-| 语言列表 | `LanguageUtils.kt:9-17` |
-| 语言名称字符串 | `values/strings.xml` 第 236–246 行 `language_name_*` |
-| Context 挂载点 | `ClintApplication` / `ClintActivity:55` / `BackgroundPlaybackService:54` / `DownloadForegroundService:65` |
-| 切换语言 | `ClintActivity.captureAndApplyLanguage()`（:167），写 prefs 后 `recreate()` |
-| 自定义字体 | 无 `res/font`，中文走系统字体，无豆腐块风险 |
-| 设置搜索 | 匹配 `getString()` 结果，中文搜索无需额外开发 |
-| Lint | 仓库无 `lint.xml`、无 `lint {}` 配置；CI 只跑 `assembleGithubRelease` |
-| 硬编码界面文案 | 仅 2 处剪贴板 ClipData 标签，不在界面显示 |
+| 应用 | Clint Browser —— Android 浏览器：多标签、广告/跟踪屏蔽（Quiver Guard）、媒体嗅探、下载管理器、用户脚本、本地网页翻译 |
+| 技术栈 | Kotlin + Jetpack Compose（Material 3），少量注入 JS，Rust/C++ 屏蔽引擎 |
+| 包名 | `com.jhaiian.clint`，debug 自动加后缀 `.debug` |
+| 版本 | `versionName v1.2.6` / `versionCode 46`（`app/build.gradle.kts`） |
+| 构建 | AGP 9.4.1、Gradle 9.8.1、`compileSdk = targetSdk = 37`、`minSdk = 26` |
+| 上游 | `jhaiian/ClintBrowser`，GPLv3 |
 
----
+## 2. 常用命令
 
-## 4. 工作方式：以 PLAN/ 为契约
+| 目的 | 命令 |
+|---|---|
+| 编译 debug（github 渠道，日常用） | `./gradlew :app:assembleGithubDebug` |
+| 编译 debug（foss 渠道） | `./gradlew :app:assembleFossDebug` |
+| 只验证资源（最快查资源错误） | `./gradlew :app:processGithubDebugResources` |
+| 发布包 | `./gradlew assembleGithubRelease` |
+| 停 Gradle 守护进程 | `./gradlew --stop` |
 
-**一次会话只做一个批次。** 新对话开工流程：
+## 3. 环境要点
 
-1. 读 `PLAN/PLAN_1.md`（总纲：术语表、10 条硬规则、禁译清单、进度台账）。
-2. 读用户指定的那一份 `PLAN_N.md`（范围、特殊条目、参考译法、完成判据）。
-3. `git status --short` 确认工作区干净（应只有 `PLAN/` 未跟踪）。
-4. 若用户没说做哪一批，看 `PLAN_1` 第 8 节台账里第一个 ⬜ 的条目。
+- **JDK**：本机 21；工程 `jvmTarget = 17`，不要跟着改 21。
+- **SDK**：`compileSdk = targetSdk = 37`，本机平台目录是 `platforms/android-37.0`（带 `.0`，不叫 `android-37`）。
+- **`local.properties`**（gitignore）：至少要有 `sdk.dir`；release 签名读 `signingConfig.*`，缺了只出未签名包。
+- **`gradle/wrapper/gradle-wrapper.jar`**：上游不提交，CI 每次现生成。本地缺它时 `./gradlew` 报 `Unable to access jarfile`，处理见 DEBUG.md §6。
+- **远端**：本地未配置 remote；推分支、开 PR 都要用户同意。
 
-收工必做：跑校验命令 → 更新 `PLAN_1` 第 8 节台账（状态 / commit / 遗留）→ 告知下一份 PLAN。
+## 4. 项目结构
 
-| 文件 | 内容 | 条目 |
-|---|---|---|
-| PLAN_1 | 总纲、术语表、规则、台账 | — |
-| PLAN_2 | 骨架 + 两个脚本 + 占位符重构（必须先做） | 32 处重构 |
-| PLAN_3 | B1 通用动作 / 设置导航 / 对话框 | 332 + 3 复数 |
-| PLAN_4 | B2 外观主题 + B5 媒体权限 | 234 + 104 |
-| PLAN_5 | B3 下载管理器（内分 5 块） | 440 + 13 复数 |
-| PLAN_6 | B4 标签页书签历史 + B8 备份关于 | 186 + 194 |
-| PLAN_7 | B6 隐私 / 网站屏蔽 / 过滤列表 | 354 |
-| PLAN_8 | B7 脚本 / 翻译 / 数据 + 全量终检 | 334 + 5 复数 |
-| PLAN_9 | 手工验收 + PR 准备 | — |
-
----
-
-## 5. 铁律
-
-**必须：**
-- 占位符 `%1$s`/`%1$d` 原样保留，编号与类型不变；字面百分号写 `%%`
-- 转义原样：`\n` `\u2026` `\u2192` `\u2014` `&amp;` `&lt;`；中文不含撇号，别照抄 `\'`
-- 复数只写 `<item quantity="other">`（中文按 CLDR 只有 other）
-- key 顺序、注释、`translatable` 属性与源文件逐行对应，不重排
-- 术语以 `PLAN_1` 第 5 节为准，新词先补表
-- 全角标点；中文与数字间不加空格；按钮 2–4 字；设置项标题 ≤ 12 字不加句号
-
-**禁止：**
-- 翻译 `about_license_text`（GPL 正文）、品牌名（Quiver Guard / MEGA / Material You）、URL、许可证名
-- 改动 `translation/` 与 `assets/translations/`（那是网页翻译模型，与界面语言无关）
-- 改动 `assets/JavaScript/`（无用户可见英文）
-- 提交 `build/` `.gradle/` `.kotlin/` `local.properties`
-- 未确认就 `push`、提 PR、改上游可见的分支
-
----
-
-## 6. 常用命令
-
-```bash
-# 校验（PLAN_2 建好后可用）
-python tools/i18n_scope.py B3 --stat          # 某批覆盖率
-python tools/i18n_scope.py --all --stat       # 全库 2178 分母
-python tools/check_i18n.py --locale zh        # 9 项断言
-python tools/check_i18n.py --locale zh --allow-missing   # 分批阶段用
-
-# 构建
-./gradlew :app:assembleGithubDebug
-./gradlew :app:assembleFossDebug
+```
+app/src/main/java/com/jhaiian/clint/
+  app/ base/            Application 与 Activity 基类
+  browser/             主界面、地址栏、WebView 宿主、媒体
+  tabs/                标签页、标签组、标签条
+  bookmarks/ history/ shortcuts/
+  downloads/           下载管理器、前台服务、MEGA 导入
+  blocker/ privacy/ quiver/    网站屏蔽、隐私开关、Quiver Guard
+  mediacapture/ userscripts/ translation/
+  settings/ customtheme/ ui/theme/
+  setup/ backup/ profiles/ crash/ update/ util/
+app/src/main/res/
+  values/strings.xml   英文源文件（唯一真源）
+  values-<lang>/       各语种
+app/src/main/assets/   JavaScript/ 注入脚本、translations/ 离线翻译模型
+native/                Rust/C++ 屏蔽引擎，产物进 app/src/main/jniLibs
+tools/                 辅助脚本（非主流程）
 ```
 
-本机 Windows + bash，路径用正斜杠。Python 可用（校验脚本用它写）。
+关键约束：
 
----
+- 界面文案 100% 走 `stringResource` / `getString`，禁止硬编码中文或英文。
+- `app/src/main/res/values/strings.xml` 是文案唯一真源；新增 key 同时补 `values-zh`（其余语种缺键自动回退英文）。
+- `assets/JavaScript/`、`assets/translations/`、`native/` 由上游维护，不要改。
+- 以下文件已很大，新逻辑另起文件，别继续往里塞：`ui/theme/ClintThemeResolver.kt`（4373 行）、`settings/SettingsPanes.kt`（1508）、`downloads/ClintDownloadManager.kt`（1380）、`browser/MainActivity.kt`（1359）。
 
-## 7. 当前状态（2026-11-16）
+## 5. 工程规范
 
-- 分支 `main`，工作区干净；`PLAN/` 未跟踪（默认不入库、不进上游 PR）
-- 已完成：上游 v1.2.6 拉取、`.gitignore` 恢复（`7ed7b75`，修掉了上游 v1.0.8 误删导致构建产物外露的问题）
-- **尚未开始**：`values-zh` 目录、语言注册、任何译文（进度 0/2178）
-- 阻塞项：本机未装 SDK Platform 37（现有 35/36），`assembleDebug` 会报找不到 android-37
-- 待用户拍板（`PLAN_1` 第 11 节）：目录用 `values-zh` 还是 `values-zh-rCN`、是否做繁体、是否提上游 PR、`localeConfig` 是否加
+### 5.1 文件规模
 
----
+- 新增 Kotlin 文件 **≤300 行**；超了先拆。
+- 既有大文件（见 §4）只减不增，新分支逻辑写进新文件。
+- 单个 Composable 建议 ≤120 行，超了抽子组件。
 
-## 8. 沟通约定
+### 5.2 分层与命名
 
-- 用户说「按 PLAN_5 做」就是要执行 B3，不要重新规划；计划有问题先提出再动手。
-- 汇报用中文，简短；贴实际命令输出，不要转述。
-- 不确定的术语或口径先问，不要自创第二套译法。
+- 一个包一个领域，禁止 `utils2`、`misc`、`common` 这类垃圾桶包。
+- 文件按角色命名：`XxxScreen.kt` `XxxDialog.kt` `XxxManager.kt` `XxxStore.kt` `XxxHelper.kt` `XxxUtils.kt`。
+- 包名小写、单数；Compose 组件首字母大写，与文件名一致。
+
+### 5.3 单一真相
+
+- 一个状态只存一份，其余表现现算派生。
+- 禁止哨兵值承载第二语义（「空列表 = 全选」「-1 = 未选」）。
+- 跨页共享状态用显式对象传递，不引入第三方状态管理库。
+
+### 5.4 删除优先
+
+- 重构必须删掉被取代的旧函数、旧字段、旧分支，不留双份实现。
+- 不写兼容壳（`_legacy`、`_v2`、`Deprecated` 转发），直接改调用点。
+- 删完全库 `grep` 确认无残留引用。
+
+### 5.5 文案与资源
+
+- 文案只进 `values/strings.xml`，值不得以 `@` 或 `?` 开头，裸 `&` / `<` 会让 aapt2 失败。
+- 占位符保持 `%1$s` / `%1$d` 的编号与类型，`%%` 是字面百分号，不能吞。
+- 复数只写 `other`；`\n`、`\u2026`、`&amp;`、`&lt;b&gt;` 等转义原样保留。
+- 引号统一用「」，避免与 `\"` 纠缠。
+
+### 5.6 验证
+
+- 改 Kotlin 或资源：`./gradlew :app:assembleGithubDebug` 必须成功（改文案也要跑，aapt2 会查转义）。
+- 本仓库**没有单元测试**，不要编造测试结论；验证手段是编译 + 真机目视。
+- 涉及界面时装 ABI 包看一遍（不要装 universal，见 §6）。
+
+### 5.7 提交
+
+| 前缀 | 用途 |
+|---|---|
+| `feat(<模块>): ...` | 新功能 |
+| `fix(<模块>): ...` | 缺陷修复 |
+| `refactor(<模块>): ...` | 重构 |
+| `chore(build): ...` `docs: ...` | 构建、文档 |
+
+不提交：`build/`、`.gradle/`、`.kotlin/`、`local.properties`、`__pycache__/`、APK、keystore。
+
+## 6. 构建与产物
+
+| 项 | 值 |
+|---|---|
+| flavor | `github` / `foss`（`IS_FOSS = true`） |
+| debug 包名 | `com.jhaiian.clint.debug` |
+| ABI 拆分 | `arm64-v8a` `armeabi-v7a` `x86` `x86_64` + `universal` |
+| 产物目录 | `app/build/outputs/apk/<flavor>/<buildType>/` |
+| release | `isMinifyEnabled` + `isShrinkResources`，需 `local.properties` 签名 |
+
+- **`app-github-universal-debug.apk` 装机必崩**（`ClassNotFoundException: com.jhaiian.clint.app.ClintApplication`）。装真机用对应 ABI 包。
+- 首次全量构建约 7 分钟（dex + NDK 符号处理），增量十几秒，别误判卡死。
+
+## 7. 调试
+
+> [!IMPORTANT]
+> 构建安装、启动停止、日志、UI 抓取、已知故障，全部收敛在 **[DEBUG.md](DEBUG.md)**。
+> 动手前先读它，尤其 §2（装哪个包）和 §6（报错对照表）。
