@@ -16,6 +16,7 @@ object LocaleHelper {
     const val LANGUAGE_PORTUGUESE_BRAZIL = "pt-BR"
     const val LANGUAGE_RUSSIAN = "ru"
     const val LANGUAGE_SPANISH = "es"
+    const val LANGUAGE_CHINESE = "zh"
     const val BASE_LANGUAGE_TAG = LANGUAGE_ENGLISH
 
     private val SUPPORTED_LANGUAGE_TAGS = listOf(
@@ -25,7 +26,8 @@ object LocaleHelper {
         LANGUAGE_INDONESIAN,
         LANGUAGE_PORTUGUESE_BRAZIL,
         LANGUAGE_RUSSIAN,
-        LANGUAGE_SPANISH
+        LANGUAGE_SPANISH,
+        LANGUAGE_CHINESE
     )
 
     fun wrapContext(context: Context): Context {

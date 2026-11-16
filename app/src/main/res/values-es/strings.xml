@@ -246,6 +246,7 @@
     <string name="language_name_indonesian">Bahasa Indonesia</string>
     <string name="language_name_portuguese_brazil">Português (Brasil)</string>
     <string name="language_name_russian">Русский</string>
+    <string name="language_name_chinese">Chino (simplificado)</string>
     <string name="pref_app_theme_title">Tema de la app</string>
     <string name="pref_app_theme_summary">Elige el tema visual de la app</string>
     <string name="theme_light">Claro</string>
