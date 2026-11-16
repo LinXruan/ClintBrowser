@@ -11,6 +11,7 @@ build/
 *.jks
 keystore_encoded.txt
 /.kotlin
+__pycache__/
 
 # Rust (native/quiverguard-jni) - compiled via GitHub Actions, not locally;
 # app/src/main/jniLibs/**/*.so and Cargo.lock are committed by that workflow
