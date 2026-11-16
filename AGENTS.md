@@ -17,7 +17,7 @@
 | 应用 | Clint Browser —— Android 浏览器：多标签、广告/跟踪屏蔽（Quiver Guard）、媒体嗅探、下载管理器、用户脚本、本地网页翻译 |
 | 技术栈 | Kotlin + Jetpack Compose（Material 3），少量注入 JS，Rust/C++ 屏蔽引擎 |
 | 包名 | `com.jhaiian.clint`，debug 自动加后缀 `.debug` |
-| 版本 | `versionName v1.2.6` / `versionCode 46`（`app/build.gradle.kts`） |
+| 版本 | `versionName v1.2.7` / `versionCode 47`（`app/build.gradle.kts`） |
 | 构建 | AGP 9.4.1、Gradle 9.8.1、`compileSdk = targetSdk = 37`、`minSdk = 26` |
 | 上游 | `jhaiian/ClintBrowser`，GPLv3 |
 
@@ -30,6 +30,8 @@
 | 只验证资源（最快查资源错误） | `./gradlew :app:processGithubDebugResources` |
 | 发布包 | `./gradlew assembleGithubRelease` |
 | 停 Gradle 守护进程 | `./gradlew --stop` |
+| 无线 ADB 重连 | `python tools/adb_reconnect.py` |
+| 重连并装正式版 | `python tools/adb_install_release.py` |
 
 ## 3. 环境要点
 
@@ -57,7 +59,8 @@ app/src/main/res/
   values-<lang>/       各语种
 app/src/main/assets/   JavaScript/ 注入脚本、translations/ 离线翻译模型
 native/                Rust/C++ 屏蔽引擎，产物进 app/src/main/jniLibs
-tools/                 辅助脚本（非主流程）
+tests/                 校验脚本（i18n 覆盖率 / 一致性）
+tools/                 开发机脚本（无线 ADB 重连 / 安装正式版）
 ```
 
 关键约束：

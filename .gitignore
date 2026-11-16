@@ -12,6 +12,7 @@ build/
 keystore_encoded.txt
 /.kotlin
 __pycache__/
+tools/.adb_last_endpoint
 
 # Rust (native/quiverguard-jni) - compiled via GitHub Actions, not locally;
 # app/src/main/jniLibs/**/*.so and Cargo.lock are committed by that workflow
