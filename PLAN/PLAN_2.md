@@ -8,7 +8,7 @@
 ## 1. 本阶段要达成什么
 
 1. `values-zh` 存在，`zh` 进白名单，语言列表出现「简体中文」。
-2. `tools/i18n_scope.py` 与 `tools/check_i18n.py` 可运行。
+2. `tests/i18n_scope.py` 与 `tests/check_i18n.py` 可运行。
 3. 29 条字符串 + 6 个复数 item 的非位置占位符全部改为位置参数（`grep -cE '%[sd]' values/strings.xml` = 0）。
 
 ---
@@ -118,16 +118,16 @@ Android 13+ 系统设置里的「应用语言」需要 `android:localeConfig`。
 2. `AndroidManifest.xml` 第 56 行 `<application` 加 `android:localeConfig="@xml/locales_config"`
 3. 实测「系统设置改语言 → 应用内再改 → 重启」三者行为一致
 
-### 0.6 新建 `tools/i18n_scope.py`（范围单一事实源）
+### 0.6 新建 `tests/i18n_scope.py`（范围单一事实源）
 
 作用：把第 4 节那张前缀表变成可执行文件，任何会话都能算出「本批到底有哪些 key、还差多少」。
 
 ```python
 #!/usr/bin/env python3
 """按批次导出待译 key。用法：
-    python tools/i18n_scope.py B3              # 打印 B3 全部 key + 状态
-    python tools/i18n_scope.py B3 --missing    # 只打印未翻译的
-    python tools/i18n_scope.py --all --stat    # 各批覆盖率
+    python tests/i18n_scope.py B3              # 打印 B3 全部 key + 状态
+    python tests/i18n_scope.py B3 --missing    # 只打印未翻译的
+    python tests/i18n_scope.py --all --stat    # 各批覆盖率
 """
 SCOPE = {
     "B1": ["pref", "app", "language", "look", "misc", "menu", "action", "popup",
@@ -164,9 +164,9 @@ def prefix(name: str) -> str:
 - `--stat` 输出形如：`B1 333/333 100%`，并给出总计 2179
 - 退出码：全部完成返回 0，否则 1（便于串联 CI）
 
-### 0.7 新建 `tools/check_i18n.py`（质量门禁）
+### 0.7 新建 `tests/check_i18n.py`（质量门禁）
 
-CLI：`python tools/check_i18n.py --locale zh [--report-missing]`
+CLI：`python tests/check_i18n.py --locale zh [--report-missing]`
 
 9 项断言（任一失败 `exit 1`，逐条打印 `[FAIL] key …`）：
 
@@ -248,8 +248,8 @@ exit 1
 ### 0.9 校验
 
 ```bash
-python tools/i18n_scope.py B1 --stat      # 应报 0/333
-python tools/check_i18n.py --locale zh --allow-missing
+python tests/i18n_scope.py B1 --stat      # 应报 0/333
+python tests/check_i18n.py --locale zh --allow-missing
 ```
 
 > 注意：`check_i18n.py` 在 zh 尚不完整时应**把缺失计为“未译”而非失败**，只有出现“多余 key / 占位符错配 / 转义错误”才失败。这一策略写进脚本参数 `--allow-missing`（分批阶段都用），全量译完后的终检不加。
@@ -290,5 +290,5 @@ chore(i18n): add translation scope and consistency scripts
 ## 6. 交接
 
 - 下一步：`PLAN_3.md`（B1，333 条 + 3 组复数），这是“骨架 PR 可提”的最后一块。
-- 交接时确认：`tools/i18n_scope.py B1 --stat` 应为 `0/332`，`values-zh` 里只有 5 条。
+- 交接时确认：`tests/i18n_scope.py B1 --stat` 应为 `0/332`，`values-zh` 里只有 5 条。
 - S1 编译已过；S2 起每批只跑脚本，除非改到 Kotlin 才需要再编一次。

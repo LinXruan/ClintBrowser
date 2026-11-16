@@ -43,7 +43,7 @@ adb install -r app/build/outputs/apk/github/debug/app-github-arm64-v8a-debug.apk
 |---|---|
 | 中文字符串 | `app/src/main/res/values-zh/strings.xml` |
 | 语言注册 | `LocaleHelper.kt`、`LanguageUtils.kt`、`values/strings.xml` |
-| 校验脚本 | `tools/check_i18n.py`、`tools/i18n_scope.py` |
+| 校验脚本 | `tests/check_i18n.py`、`tests/i18n_scope.py` |
 
 ---
 
@@ -59,8 +59,8 @@ adb install -r app/build/outputs/apk/github/debug/app-github-arm64-v8a-debug.apk
 
 ```bash
 git fetch origin && git merge origin/main
-python tools/i18n_scope.py --all --stat
-python tools/check_i18n.py --locale zh --report-missing
+python tests/i18n_scope.py --all --stat
+python tests/check_i18n.py --locale zh --report-missing
 ```
 
 新增 key 会回退英文，不会崩；补齐即可。

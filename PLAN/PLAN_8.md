@@ -123,10 +123,10 @@
 
 ```bash
 # 1) 覆盖率：应 2179/2179
-python tools/i18n_scope.py --all --stat
+python tests/i18n_scope.py --all --stat
 
 # 2) 严格模式：不允许 missing
-python tools/check_i18n.py --locale zh
+python tests/check_i18n.py --locale zh
 
 # 3) 一次 grep 兜底：繁体字 / 机翻口头禅 / (s) 残留
 grep -nE '個|這|們|與|為|請點擊|您的|的的|\(s\)' app/src/main/res/values-zh/strings.xml

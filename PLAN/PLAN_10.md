@@ -145,8 +145,8 @@ window.attributes = window.attributes.apply { preferredRefreshRate = max }
 ## 6. 校验
 
 ```bash
-python tools/i18n_scope.py --all --stat     # 仍为 2179/2179（本批不加文案）
-python tools/check_i18n.py --locale zh      # 无 FAIL
+python tests/i18n_scope.py --all --stat     # 仍为 2179/2179（本批不加文案）
+python tests/check_i18n.py --locale zh      # 无 FAIL
 ./gradlew :app:assembleGithubDebug          # BUILD SUCCESSFUL
 ```
 

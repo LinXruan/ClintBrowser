@@ -10,7 +10,7 @@
 1. 设置首页 15 个分类入口、长按菜单、工具栏动作、主页、快捷方式管理全部中文。
 2. 通用按钮（返回/前进/首页/分享/关闭/保存/确定/取消）无遗漏。
 3. 对话框骨架（标题+内容+两个按钮）全部中文，按钮不被截断。
-4. 覆盖率：`python tools/i18n_scope.py B1 --stat` 显示 333/333。
+4. 覆盖率：`python tests/i18n_scope.py B1 --stat` 显示 333/333。
 
 ---
 
@@ -129,11 +129,11 @@
 
 1. 导出清单：
    ```bash
-   python tools/i18n_scope.py B1 --missing > .tmp_b1.txt
+   python tests/i18n_scope.py B1 --missing > .tmp_b1.txt
    wc -l .tmp_b1.txt     # 应为 332 + 3 组复数
    ```
 2. 按上面的「界面清单」顺序译，**每次只处理 60–90 条**，写入 `values-zh/strings.xml`（追加，保持源文件 key 顺序）。
-3. 每完成一段，跑一次 `python tools/check_i18n.py --locale zh --allow-missing`，确保没有转义/占位符错误累积。
+3. 每完成一段，跑一次 `python tests/check_i18n.py --locale zh --allow-missing`，确保没有转义/占位符错误累积。
 4. 全部完成后去掉 `--allow-missing` 再跑一次（此时仍可能因其他批次缺失而报 missing，用 `--report-missing` 确认缺口只在别的批次）。
 
 ---
@@ -141,8 +141,8 @@
 ## 7. 校验
 
 ```bash
-python tools/i18n_scope.py B1 --stat          # 333/333 100%
-python tools/check_i18n.py --locale zh --allow-missing
+python tests/i18n_scope.py B1 --stat          # 333/333 100%
+python tests/check_i18n.py --locale zh --allow-missing
 ```
 
 ---

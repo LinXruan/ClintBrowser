@@ -118,8 +118,8 @@
 ## 7. 校验
 
 ```bash
-python tools/i18n_scope.py B6 --stat
-python tools/check_i18n.py --locale zh --allow-missing
+python tests/i18n_scope.py B6 --stat
+python tests/check_i18n.py --locale zh --allow-missing
 ```
 
 ---

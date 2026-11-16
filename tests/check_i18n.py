@@ -2,9 +2,9 @@
 """校验某语种 strings.xml 与英文源文件的一致性。
 
 用法：
-    python tools/check_i18n.py --locale zh
-    python tools/check_i18n.py --locale zh --allow-missing     # 分批阶段
-    python tools/check_i18n.py --locale zh --report-missing
+    python tests/check_i18n.py --locale zh
+    python tests/check_i18n.py --locale zh --allow-missing     # 分批阶段
+    python tests/check_i18n.py --locale zh --report-missing
 """
 import argparse
 import re

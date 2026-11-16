@@ -185,9 +185,9 @@
 ## 7. 校验
 
 ```bash
-python tools/i18n_scope.py B2 --stat
-python tools/i18n_scope.py B5 --stat
-python tools/check_i18n.py --locale zh --allow-missing
+python tests/i18n_scope.py B2 --stat
+python tests/i18n_scope.py B5 --stat
+python tests/check_i18n.py --locale zh --allow-missing
 ```
 
 手动附加检查（色名查重）：

@@ -11,7 +11,7 @@
 1. 读本文件第 2 节索引，找到本次要执行的 `PLAN_N`。
 2. 读该 `PLAN_N` 全文，特别是「条目范围」「特殊条目」「完成判据」。
 3. 确认工作区状态：`git status --short`，应只有 `PLAN/` 未跟踪；若有其他改动先问清楚。
-4. 跑一次 `python tools/check_i18n.py --locale zh` 拿当前基线（若工具尚未建立，说明本次是 PLAN_2）。
+4. 跑一次 `python tests/check_i18n.py --locale zh` 拿当前基线（若工具尚未建立，说明本次是 PLAN_2）。
 
 ### 收工（必做）
 1. 跑该阶段的校验命令，把结果贴进对话。
@@ -111,7 +111,7 @@
 | D2 | 繁体 | 本期不做，预留 | 加 `values-zh-rTW` 即可，无需改代码 | 同批做两份：成本翻倍 |
 | D3 | 范围 | 2179 条全量 + 禁译清单 | 中英混杂比不翻更劝退；缺键自动回退，可分批发 | 只翻设置页 |
 | D4 | 生产方式 | 术语表 + 分批机辅 + 人审 | 440 条下载类高度模板化；但术语必须锁死 | 整文件一次生成即提交 |
-| D5 | 校验 | 自建 `tools/check_i18n.py` | 无 lint 配置，lint 也查不出占位符错配 | 只靠编译 |
+| D5 | 校验 | 自建 `tests/check_i18n.py` | 无 lint 配置，lint 也查不出占位符错配 | 只靠编译 |
 | D6 | 上游 | 先骨架 PR，再分批推 | 2100 条 PR 无人 review | 一次性全量 PR |
 
 ---
@@ -222,8 +222,8 @@
 
 **验收只看脚本，不做逐屏人工验收。** 整库只在 PLAN_9 跑一次编译。
 
-1. `python tools/check_i18n.py --locale zh` 无 FAIL（占位符、复数、转义、多余 key）。
-2. `python tools/i18n_scope.py --all --stat` 达到 2179/2179。
+1. `python tests/check_i18n.py --locale zh` 无 FAIL（占位符、复数、转义、多余 key）。
+2. `python tests/i18n_scope.py --all --stat` 达到 2179/2179。
 3. 该批已提交，`git status` 干净（`PLAN/`、`AGENTS.md`、`local.properties` 除外）。
 
 ---

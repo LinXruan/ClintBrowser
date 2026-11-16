@@ -121,7 +121,7 @@
 ## 6. 操作步骤（按块推进）
 
 ```bash
-python tools/i18n_scope.py B3 --missing > .tmp_b3.txt
+python tests/i18n_scope.py B3 --missing > .tmp_b3.txt
 wc -l .tmp_b3.txt          # 440
 ```
 
@@ -137,8 +137,8 @@ wc -l .tmp_b3.txt          # 440
 ## 7. 校验
 
 ```bash
-python tools/i18n_scope.py B3 --stat        # 440/440
-python tools/check_i18n.py --locale zh --allow-missing
+python tests/i18n_scope.py B3 --stat        # 440/440
+python tests/check_i18n.py --locale zh --allow-missing
 ```
 
 ---

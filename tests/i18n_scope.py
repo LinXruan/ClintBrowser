@@ -2,10 +2,10 @@
 """按批次统计需要翻译的字符串 key。
 
 用法：
-    python tools/i18n_scope.py B3              # 打印 B3 全部 key + 状态
-    python tools/i18n_scope.py B3 --missing    # 只打印未翻译的
-    python tools/i18n_scope.py --all --stat    # 各批覆盖率
-    python tools/i18n_scope.py --all --unassigned   # 找出未归类的 key
+    python tests/i18n_scope.py B3              # 打印 B3 全部 key + 状态
+    python tests/i18n_scope.py B3 --missing    # 只打印未翻译的
+    python tests/i18n_scope.py --all --stat    # 各批覆盖率
+    python tests/i18n_scope.py --all --unassigned   # 找出未归类的 key
 """
 import argparse
 import sys
