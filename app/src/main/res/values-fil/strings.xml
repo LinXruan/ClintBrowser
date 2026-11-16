@@ -220,7 +220,7 @@
     <string name="about_license_text">Ang source code ng proyektong ito ay lisensyado sa ilalim ng GNU General Public License v3.0 (GPLv3).\n\nAng mga pangalang \"Clint\" at \"Clint Browser,\" ang logo, mga screenshot, at lahat ng kaugnay na branding asset ay mga trademark o proprietary asset ng may-akda at hindi sakop ng GPL license. Kailangan ng malinaw na pahintulot mula sa may-akda para magamit ang mga asset na ito.</string>
     <string name="about_license_link_label">Tingnan ang GPL v3.0 license \u2197</string>
     <string name="about_opensource_text">Nasa GitHub ang kumpletong source code. Welcome ang mga kontribusyon, bug report, at feature request.</string>
-    <string name="about_github_url">github.com/jhaiian/ClintBrowser \u2197</string>
+    <string name="about_github_url">github.com/LinXruan/ClintBrowser \u2197</string>
     <string name="about_section_keep_android_open">KEEP ANDROID OPEN</string>
     <string name="about_keep_android_open_text">Ipinapatupad ng Google ang sapilitang pag-verify ng pagkakakilanlan ng mga developer, na banta sa sideloading at sa malayang app ecosystem ng Android, pati na sa mga app na tulad nito. Alamin ang higit pa at iparinig ang boses mo.</string>
     <string name="about_keep_android_open_url">keepandroidopen.org \u2197</string>

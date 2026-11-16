@@ -8,7 +8,7 @@
     python tools/adb_install_release.py --serial ip:port
 
 说明:
-    release 包名是 com.jhaiian.clint, debug 是 com.jhaiian.clint.debug, 两者可共存。
+    release 包名是 com.linxruan.clint.zh, debug 是 com.linxruan.clint.zh.debug, 两者可共存。
     未配置签名 (local.properties 缺 signingConfig.*) 时只会产出 unsigned 包,
     本脚本会检测并拒绝安装, 因为 adbd 不接受未签名 APK。
 """

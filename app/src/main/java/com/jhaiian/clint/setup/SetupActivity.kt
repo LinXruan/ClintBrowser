@@ -38,8 +38,8 @@ class SetupActivity : ClintActivity(), OverlayHostActivity {
     }
 
     companion object {
-        const val PRIVACY_POLICY_URL = "https://github.com/jhaiian/ClintBrowser/blob/main/PRIVACY_POLICY.md"
-        const val TERMS_URL = "https://github.com/jhaiian/ClintBrowser/blob/main/TERMS_OF_SERVICE.md"
+        const val PRIVACY_POLICY_URL = "https://github.com/LinXruan/ClintBrowser/blob/main/PRIVACY_POLICY.md"
+        const val TERMS_URL = "https://github.com/LinXruan/ClintBrowser/blob/main/TERMS_OF_SERVICE.md"
         private const val KEY_PENDING_PAGE = "setup_pending_page"
         private const val KEY_PENDING_SCROLL = "setup_pending_scroll"
         private const val KEY_PENDING_CONSENT = "setup_pending_consent"

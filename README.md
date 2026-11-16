@@ -1,190 +1,195 @@
 <div align="center">
 
-<img src="docs/icon.png" width="120" alt="Clint Browser logo" />
+<img src="docs/icon.png" width="120" alt="Clint Browser 中文分支图标" />
 
-# Clint Browser
+# Clint Browser（中文分支）
 
-**Customizable Layered Internet Navigation Tool**
+**可定制的分层网络浏览工具**
 
-Lightweight browser with ADM, ad blocking, media capture, and multi-profile support
+轻量浏览器，支持媒体嗅探、广告拦截、下载管理器和多身份配置
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blueviolet.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B-blueviolet.svg)](https://developer.android.com)
-[![Stable](https://img.shields.io/badge/Stable-1.2.5-blueviolet.svg)](https://github.com/jhaiian/ClintBrowser/releases/tag/v1.2.5)
-[![Beta](https://img.shields.io/badge/Beta-1.2.5-blueviolet.svg)](https://github.com/jhaiian/ClintBrowser/releases/tag/v1.2.5)
-[![Downloads](https://img.shields.io/github/downloads/jhaiian/ClintBrowser/total?color=blueviolet)](https://github.com/jhaiian/ClintBrowser/releases)
-[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-blueviolet.svg)](https://github.com/jhaiian/ClintBrowser)
+[![Version](https://img.shields.io/badge/Version-1.2.7-blueviolet.svg)](https://github.com/LinXruan/ClintBrowser/releases)
+[![Fork of](https://img.shields.io/badge/Fork%20of-jhaiian%2FClintBrowser-8B5CF6.svg)](https://github.com/jhaiian/ClintBrowser)
 
 </div>
 
 ---
 
-## What is Clint Browser?
+## 关于本仓库
 
-An open source Android browser with no dedicated backend and tons of features that typical browsers have, while offering a modern UI built around Material 3.
+> **这是 [jhaiian/ClintBrowser](https://github.com/jhaiian/ClintBrowser) 的非官方中文分支。**
+>
+> 由社区维护，与原作者没有隶属、赞助或背书关系。上游仍然是这个项目的主线：想要原版、最新功能或英文说明，请访问 [上游仓库](https://github.com/jhaiian/ClintBrowser)。
+>
+> 代码同样遵循 GPLv3，源码、修改记录和完整提交历史都在本仓库公开。
 
-We respect your privacy, so the app doesn't collect any kind of data. We don't even count how many active users there are. We collect zero data whatsoever.
+### 本仓库相对上游的改动
 
-Clint Browser's goal is to create an Android browser that does more while being pleasant to look at and highly customizable, with no ads and no paywalls. Clint Browser is completely free to use.
+| 改动 | 说明 |
+|---|---|
+| 界面汉化 | 全部界面文案翻译为简体中文，保留占位符、复数与转义 |
+| 全局刷新率同步 | 应用可见时申请屏幕支持的最高刷新率，滚动与动画不再固定在 60Hz；系统省电模式和刷新率上限仍然优先，60Hz 设备无变化 |
+| 全新图标 | 黑底紫色渐变大写 `C`，同时用于应用图标和本 README |
+| 独立安装包名 | `com.linxruan.clint.zh`，可与上游正式版同时安装，互不覆盖 |
+| 独立更新源 | 应用内「检查更新」读取本仓库的 `Update/*.json`，不再跳转到上游 APK |
 
-Looking for a Firefox-based version with extension support? Check out [Clint Gecko](https://github.com/jhaiian/ClintGecko), the official fork of Clint Browser built on GeckoView.
+> **关于图标**：上游的名称、Logo、截图属于原作者的商标/专有资产，**不在 GPLv3 授权范围内**，因此本分支不再使用原 Logo，改为自行设计的图标。
 
-Built and maintained by **[@jhaiian](https://github.com/jhaiian)** — a solo developer from the Philippines 🇵🇭
+英文版说明和完整的功能更新日志请见上游仓库：[README](https://github.com/jhaiian/ClintBrowser#readme) · [CHANGELOG](CHANGELOG.md)。
 
 ---
 
-## Screenshots
+## 这是什么
+
+一个开源 Android 浏览器：没有自建后端，具备常见浏览器的绝大多数功能，界面基于 Material 3 构建。
+
+应用不收集任何数据，也不统计活跃用户数。
+
+Clint 的目标是做一个功能更多、好看且高度可定制的 Android 浏览器：没有广告，没有付费墙，完全免费。
+
+---
+
+## 截图
 
 <div align="center">
   <table>
     <tr>
-      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="180" alt="Screenshot 1" /></td>
-      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="180" alt="Screenshot 2" /></td>
+      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/1.jpg" width="180" alt="截图 1" /></td>
+      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/2.jpg" width="180" alt="截图 2" /></td>
     </tr>
     <tr>
-      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="180" alt="Screenshot 3" /></td>
-      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" width="180" alt="Screenshot 4" /></td>
+      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/3.jpg" width="180" alt="截图 3" /></td>
+      <td align="center"><img src="fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" width="180" alt="截图 4" /></td>
     </tr>
   </table>
 </div>
 
 ---
 
-## Features
+## 功能
 
-### 🎬 Media Capture
+### 🎬 媒体嗅探
 
-- Detects video, audio, and subtitle streams on webpages you visit
-- Supports normal video, HLS/M3U8, and DASH streams
-- Download detected media directly from the browser
+- 自动识别网页中的视频、音频与字幕流
+- 支持普通视频、HLS/M3U8 与 DASH 流
+- 在浏览器内直接下载嗅探到的媒体
 
-### ⬇️ Download Manager
+### ⬇️ 下载管理器
 
-- Multi-threaded and multi-part downloads
-- Pause and resume
-- Download scheduler
-- Speed limiter
-- Custom download locations
-- Automatically pauses and resumes stuck downloads on its own
+- 多线程、多分片下载
+- 暂停与续传
+- 下载计划任务
+- 限速
+- 自定义下载目录
+- 卡住的下载会自动暂停并重试
 
-### 📜 User Scripts
+### 📜 用户脚本
 
-- Install userscripts from a URL or write your own with a built-in code editor
-- Tampermonkey-style metadata support (`@match`, `@include`, `@exclude`, `@require`, `@resource`, `@grant`)
-- GM API support, including `GM.setValue`/`GM.getValue`, `GM.xmlHttpRequest`, and `GM.notification`
-- Automatic update checks for scripts installed from a URL
-- Enable or disable individual scripts at any time
+- 从 URL 安装用户脚本，或用内置代码编辑器自己写
+- 兼容 Tampermonkey 风格元数据（`@match`、`@include`、`@exclude`、`@require`、`@resource`、`@grant`）
+- 支持 GM API，包括 `GM.setValue`/`GM.getValue`、`GM.xmlHttpRequest` 和 `GM.notification`
+- 从 URL 安装的脚本会自动检查更新
+- 随时启用或停用单个脚本
 
-### 🎨 UI & Customization
+### 🎨 界面与定制
 
-Clint Browser is built with **Material 3** and **Jetpack Compose**, with a highly customizable interface.
+基于 **Material 3** 与 **Jetpack Compose** 构建，界面高度可定制。
 
-- 50 accent colors
-- Light and Dark themes
-- 5 surface intensities
-- **In total, 500 possible theme combinations**
+- 50 种强调色
+- 浅色与深色主题
+- 5 档表面强度
+- 合计 **500 种主题组合**
 
 ### 🛡️ Quiver Guard
 
-- Built-in ad and tracker blocker
-- Cosmetic and network filtering
-- Multiple filter lists
-- Per-site controls
+- 内置广告与跟踪器拦截
+- 外观过滤与网络过滤
+- 多份过滤规则列表
+- 按站点单独控制
 
-### 🚫 Website Blocker
+### 🚫 网站屏蔽
 
-- Blocks pornography, gambling, and other unwanted categories
-- Category-based filter lists (abuse, ads, crypto, drugs, fraud, gambling, and more)
-- Add your own custom websites to block
+- 屏蔽色情、赌博等不想要的网站类别
+- 按类别划分的规则列表（滥用、广告、加密货币、毒品、诈骗、赌博等）
+- 可自行添加要屏蔽的网站
 
-### 👤 Profiles
+### 👤 身份配置
 
-- Stay signed in to several accounts on the same website at the same time
-- Each profile keeps its own cookies, logins, and site data
-- Pick a profile when opening a new tab
-- Give each profile its own name and color
+- 同一网站可同时登录多个账号
+- 每个身份拥有独立的 Cookie、登录状态与站点数据
+- 新建标签页时选择身份
+- 为每个身份设置名称与颜色
 
-### 🔗 Shortcuts
+### 🔗 快捷方式
 
-- Add any website to your home screen with a custom name and icon
-- Frameless mode hides the search bar and bottom bar for an app-like feel
-- Manage all your shortcuts in one place with the built-in Shortcut Manager
+- 把任意网站添加到桌面，自定义名称与图标
+- 无边框模式隐藏搜索栏和底栏，接近原生应用的观感
+- 内置快捷方式管理器统一管理
 
-### 🌐 Browser
+### 🌐 浏览器
 
-- Multi-tab browsing
-- Incognito mode
-- Reader Mode
-- Desktop Mode
-- Popup protection
-- Data Saver
+- 多标签浏览
+- 无痕模式
+- 阅读模式
+- 桌面模式
+- 弹窗拦截
+- 流量节省
 
-> Just download the app and explore it yourself.
-
----
-
-## Donations
-
-### Help Keep Clint Free Forever 💜
-
-Clint is an independent, open-source project built by one developer who believes everyone deserves a customizable browsing experience without ads, paywalls, or locked features.
-
-Your donations help support continued development, maintenance, and future improvements. Every contribution, no matter how small, means a lot and helps keep Clint moving forward.
-
-Clint will always remain free. Thank you for being part of this journey. 💜
-
-[![Patreon](https://img.shields.io/badge/Support%20me-Patreon-orange?style=for-the-badge&logo=patreon)](https://patreon.com/Jhaiian)
-[![Ko-fi](https://img.shields.io/badge/Buy%20me%20a%20coffee-Ko--fi-red?style=for-the-badge&logo=ko-fi)](https://ko-fi.com/jhaiian)
-[![PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?style=for-the-badge&logo=paypal)](https://paypal.me/jhaiian)
-[![InstaPay QR](https://img.shields.io/badge/InstaPay%20QR-Philippines%20only-7C3AED?style=for-the-badge)](https://github.com/jhaiian/jhaiian/blob/main/docs/Insta%20Pay.jpg)
+> 装上自己体验就好。
 
 ---
 
-## Requirements
+## 系统要求
 
-- Android 8.0 (API 26) or higher
-- WebView Implementation
-
----
-
-## Installation
-
-Download the latest APK from the [Releases](https://github.com/jhaiian/ClintBrowser/releases) page.
+- Android 8.0（API 26）及以上
+- 系统 WebView
 
 ---
 
-## Contributing
+## 安装
 
-Contributions, bug reports, and feature requests are welcome.
+从本仓库的 [Releases](https://github.com/LinXruan/ClintBrowser/releases) 页面下载最新 APK。
 
-1. [Open an issue](https://github.com/jhaiian/ClintBrowser/issues) to report a bug or suggest a feature.
-2. Fork the repo and create a branch for your change.
-3. Submit a pull request with a clear description.
-
-To report a crash, use the built‑in **Debug & Crash Reports** screen. It generates a pre‑filled GitHub issue template with your device info and crash log. For more details, see [Contributing.md](https://github.com/jhaiian/ClintBrowser/blob/main/Contributing.md).
+- 请选择与自己设备 ABI 对应的安装包（`arm64-v8a`、`armeabi-v7a`、`x86`、`x86_64`）。
+- `universal` 包在本项目上存在启动崩溃问题，不建议安装。
+- 包名与上游不同，因此**可以和上游版本同时安装**；两者数据互不影响。
 
 ---
 
-## Community
+## 参与贡献
 
-Join the official Clint Browser community on Discord and Reddit to share feedback, report bugs, and connect with other users.
+欢迎提交代码、缺陷报告和功能建议。
+
+- 与**本分支**相关的问题（汉化、刷新率、图标、包名）：请到[本仓库 Issues](https://github.com/LinXruan/ClintBrowser/issues) 反馈。
+- 与原版功能相关的问题：请到[上游 Issues](https://github.com/jhaiian/ClintBrowser/issues) 反馈，避免重复。
+- 提交代码改动前请先读 [AGENTS.md](AGENTS.md)，构建与调试见 [DEBUG.md](DEBUG.md)。
+
+---
+
+## 社区
+
+上游社区（英文）：
 
 - **Discord** – [discord.gg/4kUe4yPQ32](https://discord.gg/4kUe4yPQ32)
 - **Reddit** – [reddit.com/r/ClintBrowser](https://reddit.com/r/ClintBrowser)
 
 ---
 
-## License
+## 许可证
 
-The source code of this project is licensed under the [GNU General Public License v3.0 (GPLv3)](https://github.com/jhaiian/ClintBrowser/blob/main/LICENSE).  
+本项目源代码遵循 [GNU 通用公共许可证 v3.0（GPLv3）](LICENSE)。
 
-The names "Clint" and "Clint Browser," the logo, screenshots, and all related branding assets are **trademarks** or **proprietary assets** of the author and are **not licensed under the GPL**. Use of these assets requires explicit permission from the author.
+「Clint」「Clint Browser」名称、上游 Logo、截图及相关品牌资产属于上游作者的商标或专有资产，**不在 GPL 授权范围内**，使用需获得原作者明确许可。本分支为非官方版本，已自行重绘图标，也不代表原作者的立场。
 
-All libraries used in this app have their own licenses. Please comply with their respective license terms. See [Attribution.md](https://github.com/jhaiian/ClintBrowser/blob/main/Attribution.md) for details.
+应用内使用的第三方库各自遵循其许可证，详见 [Attribution.md](Attribution.md)。
 
 ---
 
-## Legal
+## 相关文档
 
-- [Privacy Policy](PRIVACY_POLICY.md)
-- [Terms of Service](TERMS_OF_SERVICE.md)
+- [更新日志](CHANGELOG.md)
+- [隐私政策](PRIVACY_POLICY.md)
+- [服务条款](TERMS_OF_SERVICE.md)
+- [贡献者名单](Contributors.md)

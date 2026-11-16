@@ -39,18 +39,18 @@ adb install -r app/build/outputs/apk/github/debug/app-github-arm64-v8a-debug.apk
 
 | 项 | 值 |
 |---|---|
-| 包名 | `com.jhaiian.clint.debug` |
+| 包名 | `com.linxruan.clint.zh.debug` |
 | 主界面 | `com.jhaiian.clint.browser.MainActivity` |
 | 首次启动 | `com.jhaiian.clint.setup.SetupActivity`（引导页） |
 
 ```bash
-adb shell am start -n com.jhaiian.clint.debug/com.jhaiian.clint.browser.MainActivity
-adb shell am force-stop com.jhaiian.clint.debug
+adb shell am start -n com.linxruan.clint.zh.debug/com.jhaiian.clint.browser.MainActivity
+adb shell am force-stop com.linxruan.clint.zh.debug
 adb shell dumpsys activity activities | grep -m1 topResumedActivity
-adb shell pidof com.jhaiian.clint.debug
+adb shell pidof com.linxruan.clint.zh.debug
 ```
 
-`monkey -p com.jhaiian.clint` 会报 `No activities found`——包名少了 `.debug`。
+`monkey -p com.linxruan.clint` 会报 `No activities found`——包名少了 `.debug`。
 
 ## 4. 日志
 
@@ -59,7 +59,7 @@ adb logcat -c
 adb logcat -b crash -d | tail -40
 adb logcat -d | grep -E 'AndroidRuntime|FATAL' | tail -30
 
-PID=$(adb shell pidof com.jhaiian.clint.debug | tr -d '\r')
+PID=$(adb shell pidof com.linxruan.clint.zh.debug | tr -d '\r')
 adb logcat -d --pid=$PID | tail -100
 ```
 

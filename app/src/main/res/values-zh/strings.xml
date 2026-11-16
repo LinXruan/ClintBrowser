@@ -217,7 +217,7 @@
     <string name="about_license_text">The source code of this project is licensed under the GNU General Public License v3.0 (GPLv3).\n\nThe names \"Clint\" and \"Clint Browser,\" the logo, screenshots, and all related branding assets are trademarks or proprietary assets of the author and are not licensed under the GPL. Use of these assets requires explicit permission from the author.</string>
     <string name="about_license_link_label">查看 GPL v3.0 许可证 \u2197</string>
     <string name="about_opensource_text">完整源码公开在 GitHub 上，欢迎贡献代码、报告问题或提出功能建议。</string>
-    <string name="about_github_url">github.com/jhaiian/ClintBrowser \u2197</string>
+    <string name="about_github_url">github.com/LinXruan/ClintBrowser \u2197</string>
     <string name="about_section_keep_android_open">让 Android 保持开放</string>
     <string name="about_keep_android_open_text">Google 正在推行强制性的开发者身份验证要求，这会威胁 Android 上的侧载和独立应用生态，包括本应用。了解详情并发出你的声音。</string>
     <string name="about_keep_android_open_url">keepandroidopen.org \u2197</string>

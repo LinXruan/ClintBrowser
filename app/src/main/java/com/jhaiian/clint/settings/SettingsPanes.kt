@@ -1193,7 +1193,7 @@ fun DebugPane(activity: SettingsActivity) {
             }
         },
         onOpenGithub = {
-            runCatching { activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/jhaiian/ClintBrowser/issues/new"))) }
+            runCatching { activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/LinXruan/ClintBrowser/issues/new"))) }
         }
     )
 }

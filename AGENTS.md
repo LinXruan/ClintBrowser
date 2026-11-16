@@ -16,10 +16,10 @@
 |---|---|
 | 应用 | Clint Browser —— Android 浏览器：多标签、广告/跟踪屏蔽（Quiver Guard）、媒体嗅探、下载管理器、用户脚本、本地网页翻译 |
 | 技术栈 | Kotlin + Jetpack Compose（Material 3），少量注入 JS，Rust/C++ 屏蔽引擎 |
-| 包名 | `com.jhaiian.clint`，debug 自动加后缀 `.debug` |
-| 版本 | `versionName v1.2.7` / `versionCode 47`（`app/build.gradle.kts`） |
+| 包名 | 安装包名 `com.linxruan.clint.zh`，debug 自动加后缀 `.debug`；源码 namespace 仍为 `com.jhaiian.clint` |
+| 版本 | `versionName v1.2.7` / `versionCode 48`（`app/build.gradle.kts`） |
 | 构建 | AGP 9.4.1、Gradle 9.8.1、`compileSdk = targetSdk = 37`、`minSdk = 26` |
-| 上游 | `jhaiian/ClintBrowser`，GPLv3 |
+| 上游 | `jhaiian/ClintBrowser`（本仓库为其非官方中文 fork），GPLv3 |
 
 ## 2. 常用命令
 
@@ -124,7 +124,7 @@ tools/                 开发机脚本（无线 ADB 重连 / 安装正式版）
 | 项 | 值 |
 |---|---|
 | flavor | `github` / `foss`（`IS_FOSS = true`） |
-| debug 包名 | `com.jhaiian.clint.debug` |
+| debug 包名 | `com.linxruan.clint.zh.debug` |
 | ABI 拆分 | `arm64-v8a` `armeabi-v7a` `x86` `x86_64` + `universal` |
 | 产物目录 | `app/build/outputs/apk/<flavor>/<buildType>/` |
 | release | `isMinifyEnabled` + `isShrinkResources`，需 `local.properties` 签名 |

@@ -18,10 +18,10 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.jhaiian.clint"
+        applicationId = "com.linxruan.clint.zh"
         minSdk = 26
         targetSdk = 37
-        versionCode = 47
+        versionCode = 48
         versionName = "v1.2.7"
     }
 

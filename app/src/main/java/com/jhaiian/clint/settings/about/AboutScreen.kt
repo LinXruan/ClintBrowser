@@ -28,13 +28,13 @@ import com.jhaiian.clint.ui.theme.ClintColors
 import com.jhaiian.clint.ui.theme.LocalClintColors
 
 private const val AUTHOR_URL = "https://linktr.ee/jhaiian"
-private const val GITHUB_URL = "https://github.com/jhaiian/ClintBrowser"
+private const val GITHUB_URL = "https://github.com/LinXruan/ClintBrowser"
 private const val KEEP_ANDROID_OPEN_URL = "https://keepandroidopen.org"
 private const val DISCORD_URL = "https://discord.gg/4kUe4yPQ32"
 private const val REDDIT_URL = "https://www.reddit.com/r/ClintBrowser"
 private const val LICENSE_URL = "https://www.gnu.org/licenses/gpl-3.0.html"
 private const val CONTACT_EMAIL_URL = "mailto:jhaiian@proton.me"
-private const val CONTRIBUTORS_URL = "https://github.com/jhaiian/ClintBrowser/blob/main/Contributors.md"
+private const val CONTRIBUTORS_URL = "https://github.com/LinXruan/ClintBrowser/blob/main/Contributors.md"
 private const val APACHE_2_LICENSE_URL = "https://www.apache.org/licenses/LICENSE-2.0.txt"
 private const val MARKWON_URL = "https://github.com/noties/Markwon"
 private const val ANDROIDX_URL = "https://developer.android.com/jetpack/androidx"
