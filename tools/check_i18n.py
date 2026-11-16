@@ -52,6 +52,10 @@ def load(path, label):
         sys.exit(1)
     strings, plurals = {}, {}
     for el in root:
+        if el.tag not in ("string", "plurals"):
+            continue
+        if el.get("translatable", "true") == "false":   # 禁译项（如 custom_theme_preview_*）不进 zh
+            continue
         if el.tag == "string":
             strings[el.get("name")] = text_of(el)
         elif el.tag == "plurals":
